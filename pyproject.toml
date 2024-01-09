@@ -1,0 +1,31 @@
+[build-system]
+# build the package with [flit](https://flit.readthedocs.io)
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+# See https://www.python.org/dev/peps/pep-0621/
+name = "aiida-hhpm"
+version = "0.1.0"
+description = "aiida HHPM"
+dependencies = [
+    "aiida-core>=2.0,<3",
+]
+
+[project.entry-points."aiida.calculations"]
+"hhpm.syva" = "aiida_hhpm.calculations.syva:HhpmSyvaCalculation"
+
+[project.entry-points."aiida.parsers"]
+"hhpm.syva" = "aiida_hhpm.parsers.syva:HhpmSyvaParser"
+
+[project.entry-points."aiida.workflows"]
+"hhpm.main" = "aiida_hhpm.workflows.main:HhpmMainWorkChain"
+"hhpm.cation" = "aiida_hhpm.workflows.cation:HhpmCationWorkChain"
+"hhpm.relax" = "aiida_hhpm.workflows.relax:HhpmRelaxWorkChain"
+"hhpm.property" = "aiida_hhpm.workflows.property:HhpmPropertyWorkChain"
+
+[project.entry-points."aiida.data"]
+"hhpm.jsonable_structure" = "aiida_hhpm.data.jsonable_structure:HhpmJsonableStructureData"
+
+[tool.flit.module]
+name = "aiida_hhpm"
