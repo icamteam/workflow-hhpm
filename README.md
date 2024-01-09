@@ -60,7 +60,7 @@ verdi status
 #### Clone this repository, and register the workflow
 
 ```shell
-git clone 
+git clone <url_to_github_repository>
 cd workflow_hhpm
 pip install -e .
 ```
